@@ -1,4 +1,4 @@
-from uuid import uuid4
+#from uuid import uuid4
 from datetime import timedelta, datetime
 
 from django.db import models
@@ -73,9 +73,8 @@ class TransactionBaseQuerySet(models.QuerySet):
 class TransactionBase(models.Model):
     objects = TransactionBaseQuerySet.as_manager()
 
-    id = models.UUIDField(primary_key=True,
+    id = models.IntegerField(primary_key=True,
                           editable=False,
-                          default=uuid4,
                           unique=True)
 
     description = models.CharField(max_length=120)
